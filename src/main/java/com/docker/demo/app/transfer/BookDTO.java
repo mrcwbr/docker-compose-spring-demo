@@ -1,4 +1,4 @@
-package com.docker.demo.app.business;
+package com.docker.demo.app.transfer;
 
 public class BookDTO {
 
