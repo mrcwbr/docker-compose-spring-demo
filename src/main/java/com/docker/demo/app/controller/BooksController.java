@@ -1,8 +1,8 @@
-package docker.demo.controller;
+package com.docker.demo.app.controller;
 
-import docker.demo.model.Book;
-import docker.demo.model.BookRepository;
-import docker.demo.business.BookDTO;
+import com.docker.demo.app.model.Book;
+import com.docker.demo.app.model.BookRepository;
+import com.docker.demo.app.business.BookDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

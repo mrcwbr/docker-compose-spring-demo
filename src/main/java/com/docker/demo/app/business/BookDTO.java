@@ -1,4 +1,4 @@
-package docker.demo.business;
+package com.docker.demo.app.business;
 
 public class BookDTO {
 

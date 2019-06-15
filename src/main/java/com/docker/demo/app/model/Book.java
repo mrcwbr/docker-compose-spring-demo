@@ -1,4 +1,4 @@
-package docker.demo.model;
+package com.docker.demo.app.model;
 
 import javax.persistence.*;
 
