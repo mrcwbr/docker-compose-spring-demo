@@ -1,0 +1,8 @@
+version: "2.1"
+
+services:
+  db:
+    image: opavlova/db-mysql:5.7-test
+    container_name: db-docker-demo
+    ports:
+      - "23306:3306"

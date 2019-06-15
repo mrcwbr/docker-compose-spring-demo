@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Books library</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!-- Start Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- End Bootstrap CSS -->
+</head>
+<body>
+	<nav class="navbar navbar-light bg-light" style="border-bottom: 1px solid #CCCCCC; margin-bottom: 50px">
+		<div class="container">
+			<a class="navbar-brand" href="/">
+				<img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+				Books library
+			</a>
+		</div>
+	</nav>
+
+	<div th:if="${success!=null}" th:text="${success}" class="alert alert-success position-absolute" style="right: 50px; top:65px" role="alert" />
+	<div th:if="${error!=null}" th:text="${error}" class="alert alert-danger position-absolute" style="right: 50px; top:65px" role="alert" />
+
+	<div class="container">
+		<div class="row">
+			<div class="col-6">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Books recorded</th>
+							<th scope="col">Actions</th>
+						</tr>
+					</thead>
+
+					<tr th:each="book : ${books}">
+						<td th:text="${book.text}" />
+						<td>
+							<form method="POST" th:action="@{/}+${book.id}+'/delete'">
+								<button type="submit" name="submit" value="value"
+									class="btn btn-sm btn-danger " th:text="Löschen" />
+								</button>
+							</form>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-4">
+				<form action="#" th:action="@{/add}" th:object="${newBook}"
+					method="post">
+					<div class="form-group">
+						<label for="newBook">New Buch</label>
+						<input type="text" th:field="*{text}" class="form-control" style="margin-bottom: 10px" placeholder="Book title" required>
+						<button type="submit" class="btn btn-primary">Create book</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Start Bootstrap JS-->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<!-- End Bootstrap -->
+</body>
+</html>
